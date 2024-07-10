@@ -2,9 +2,11 @@
 <html lang="ar" dir="rtl">
   @php
       $sitedataCtrlr=new App\Http\Controllers\Web\SiteDataController();  
-     $mainarr=$sitedataCtrlr->FillStaticData();
-   $f_menu=  $sitedataCtrlr->getbycode($defultlang->id,['footer-menu']);
-   $h_menu=  $sitedataCtrlr->getbycode($defultlang->id,['header']);
+      $mainarr=$sitedataCtrlr->FillStaticData();
+      
+      $f_menu=  $sitedataCtrlr->getbycode($defultlang->id,['footer-menu']);
+      $h_menu=  $sitedataCtrlr->getbycode($defultlang->id,['header']);
+
     // $mainmenuarr=$sitedataCtrlr->getmenubyloc('main-menu');
      //$footermenuarr=$sitedataCtrlr->getmenubyloc('footer-menu');
      

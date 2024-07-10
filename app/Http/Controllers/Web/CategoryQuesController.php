@@ -57,7 +57,7 @@ class CategoryQuesController extends Controller
 
         } else {
 
-            $tmpslug = "";
+           $tmpslug = "";
             if ($formdata["slug"] == "" || empty($formdata["slug"])) {
             $tmpslug = Str::slug($formdata["title"]); 
             } else {

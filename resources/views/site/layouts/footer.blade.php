@@ -7,14 +7,14 @@
             <a class="nav-link nav-link-pad" href="{{ url($lang,'home') }}"><i class="fas fa-home icon-style"></i><br>{{$sitedataCtrlr->gettrans($f_menu,'home')}}</a>
           </li>
           <li class="nav-item text-center flex-fill">
-            <a class="nav-link nav-link-pad" href="#"><i class="fas fa-cog icon-style"></i><br>احصائيات</a>
+            <a class="nav-link nav-link-pad" href="#"><i class="fas fa-cog icon-style"></i><br>{{$sitedataCtrlr->gettrans($f_menu,'scores')}}</a>
           </li>
           <li class="nav-item text-center flex-fill">
-            <a class="nav-link nav-link-pad" href="{{ url($lang,'categories') }}"><i class="fas fa-th-list icon-style"></i><br>التصنيفات</a>
+            <a class="nav-link nav-link-pad" href="{{ url($lang,'categories') }}"><i class="fas fa-th-list icon-style"></i><br>{{$sitedataCtrlr->gettrans($f_menu,'tests')}}</a>
           </li>
           @if (Auth::guard('client')->check())
           <li class="nav-item text-center flex-fill">
-            <a class="nav-link nav-link-pad" href="{{ route('client.account',$lang)  }}"><i class="fas fa-user icon-style"></i><br>الحساب</a>
+            <a class="nav-link nav-link-pad" href="{{ route('client.account',$lang)  }}"><i class="fas fa-user icon-style"></i><br>{{$sitedataCtrlr->gettrans($f_menu,'profile')}}</a>
           </li>
           @endif
         </ul>

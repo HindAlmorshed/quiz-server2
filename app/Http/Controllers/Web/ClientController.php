@@ -46,18 +46,22 @@ class ClientController extends Controller
       $sitedctrlr=new SiteDataController(); 
       $transarr=$sitedctrlr->FillTransData($lang);
       $defultlang=$transarr['langs']->first();
+      
       $register=$sitedctrlr->getbycode($defultlang->id,['register']);
+
         return view('site.client.register',['transarr'=>$transarr,'lang'=>$lang,'defultlang'=>$defultlang 
-       , 'register'=>$register,'sitedataCtrlr'=>$sitedctrlr]);
+       ,'register'=>$register,'sitedataCtrlr'=>$sitedctrlr]);
     }
     public function showlogin($lang)
     {
       $sitedctrlr=new SiteDataController(); 
       $transarr=$sitedctrlr->FillTransData($lang);
       $defultlang=$transarr['langs']->first();
+
       $login=$sitedctrlr->getbycode($defultlang->id,['login']);
+
         return view('site.client.login',['transarr'=>$transarr,'lang'=>$lang,'defultlang'=>$defultlang 
-        , 'login'=>$login,'sitedataCtrlr'=>$sitedctrlr]);
+        ,'login'=>$login,'sitedataCtrlr'=>$sitedctrlr]);
     }
 
     

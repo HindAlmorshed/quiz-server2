@@ -164,6 +164,10 @@ else{
     // $langitem = Language::where('status',1)->where('code', $lang)->first();
      $transarr=$sitedctrlr->FillTransData($lang);
      $defultlang=$transarr['langs']->first();
+
+     $quiz=$sitedctrlr->getbycode($defultlang->id,['quiz']);
+
+
    //  $current_path=$sitedctrlr->getpath($lang,"categories"); 
   
      $cat= $sitedctrlr->getcategory($slug,$defultlang->id);
@@ -175,8 +179,11 @@ else{
 //    if($more_post){
 // $more=$more_post['tr_title'];
 //    }
-   return view('site.content.category',['catquis'=>$cat,'transarr'=>$transarr,'lang'=>$lang,'defultlang'=>$defultlang ]);   
+   return view('site.content.category',['catquis'=>$cat,'transarr'=>$transarr,'lang'=>$lang,'defultlang'=>$defultlang 
+   ,'quiz'=>$quiz,'sitedataCtrlr'=>$sitedctrlr]);   
     }
+
+
     public function showpage(string $slug)
     {
        $catmodel= Category::where('slug',$slug)->where('code','page')->where('status',1)->first();
@@ -187,6 +194,8 @@ else{
        }
  
     }
+
+
     public function getpostcontent( $lang,$slug,$postslug)
     {
     //  return $postslug;
@@ -195,7 +204,8 @@ else{
      $langitem = Language::where('status',1)->where('code', $lang)->first();
      $catmodel= Category::where('slug',$slug)->select('id','code')->first();
      $current_path=$sitedctrlr->getpath($lang,$slug); 
-if($catmodel->code=='projects'){
+   
+   if($catmodel->code=='projects'){
    $catpostArr= $sitedctrlr->getcatwithpost( $langitem->id,$slug,$postslug);
 
 
@@ -208,7 +218,7 @@ if($catmodel->code=='projects'){
    }else{
    abort(404, '');
    }
-}else if($catmodel->code=='products'){
+   }else if($catmodel->code=='products'){
    $catpostArr= $sitedctrlr->getcatwithpost( $langitem->id,$slug,$postslug);
 
 

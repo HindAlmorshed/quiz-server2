@@ -6,7 +6,7 @@
       <div class="row justify-content-center">
         <main role="main" class="col-12 col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="h2"><span>الاختبارات</span>/<span>{{ $catquis['tr_title'] }}</span></h2>   
+            <h2 class="h2"><span>{{$sitedataCtrlr->gettrans($quiz,'tests')}}</span>/<span>{{ $catquis['tr_title'] }}</span></h2>   
           </div>
           <!-- محتوى الصفحة -->
           <div class="row main-content">
@@ -36,13 +36,14 @@
                 @csrf
                <input type="hidden" name="cat" value="{{ $catquis['id'] }}">
                <input type="hidden" name="lang" value="{{ $defultlang->id }}">            
-              <button id="start-button" class="btn btn-primary start-btn">ابدأ</button>
+              <button id="start-button" class="btn btn-primary start-btn">{{$sitedataCtrlr->gettrans($quiz,'start')}}</button>
               </form>
             </div>
+
             <div class="col-12 " id="ques-div">
               <div id="question-section" class="question-sec" style="display: none">
                 <h3 id="question-text" data="" class="mb-4">ما هو السؤال؟</h3>
-           <div id="ans-container">   
+                <div id="ans-container">   
                 <ul id="answers-list" class="list-group ques-group">
                  <li class="list-group-item d-flex align-items-center list-group-item-default" id="1">
                     <span class="answer-indicator"></span>

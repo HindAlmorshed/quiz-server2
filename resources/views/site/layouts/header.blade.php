@@ -14,23 +14,23 @@
             @if (Auth::guard('client')->check())
             <li  class="nav-item dropdown " >
 
-                <a  class="nav-link dropdown-toggle nav-link-pad" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اهلا بك يا {{ Auth::guard('client')->user()->name }}</a>
+                <a  class="nav-link dropdown-toggle nav-link-pad" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{$sitedataCtrlr->gettrans($h_menu,'welcome')}} {{ Auth::guard('client')->user()->name }}</a>
                 <div class="dropdown-menu" aria-labelledby="accountDropdown">
-                    <a class="dropdown-item" href="{{ route('client.account',$lang)  }}">حسابي</a>
+                    <a class="dropdown-item" href="{{ route('client.account',$lang)  }}">{{$sitedataCtrlr->gettrans($h_menu,'profile')}}</a>
 
                     <form method="POST" action="{{ route('logout.client') }}"  >
                         @csrf
-                    <a class="dropdown-item" href="#"  onclick="event.preventDefault();  this.closest('form').submit();">تسجيل خروج</a>
+                    <a class="dropdown-item" href="#"  onclick="event.preventDefault();  this.closest('form').submit();">{{$sitedataCtrlr->gettrans($h_menu,'logout')}}</a>
                 </form> 
 
                   </div>
             </li>
               <li class="nav-item  ">
-                <a  class="nav-link  nav-link-pad" href="#"> رصيدك:  <span id="u-balance">{{ Auth::guard('client')->user()->balance }}</span></a>
+                <a  class="nav-link  nav-link-pad" href="#"> {{$sitedataCtrlr->gettrans($h_menu,'balance')}} <span id="u-balance">{{ Auth::guard('client')->user()->balance }}</span></a>
               </li>
             @else
             <li class="nav-item  ">
-                <a class="nav-link  nav-link-pad" href="{{ url($lang,'register') }}">حساب جديد</a>
+                <a class="nav-link  nav-link-pad" href="{{ url($lang,'register') }}">{{$sitedataCtrlr->gettrans($h_menu,'new-account')}}</a>
             </li>
                <li class="nav-item  ">
                 <a class="nav-link  nav-link-pad" href="{{ route('login.client',$lang) }}">{{$sitedataCtrlr->gettrans($h_menu,'login')}}</a>
